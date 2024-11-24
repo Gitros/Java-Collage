@@ -65,15 +65,33 @@ class Circle
         this.centre = new Point2D(x, y); //Tworzenie obiektu jako środka koła z argumentami x, y
         System.out.println("Circle(double r, double x, double y)");
     }
+    Circle(double r, Point2D c)
+    {
+        this.radius = r; //Ustawienie promienia na wartość parametru r
+        this.centre = c; //Przypisanie obiektu jako parametru c do środka koła
+        System.out.println("Circle(double r, Point2D c)");
+    }
     //Metody typu setter
     void setRadius(double r)
     {
         this.radius = r; //Ustawienie promienia na wartość argumentu r
     }
+    void setCentre(double x, double y)
+    {
+        this.centre.setXY(x, y); //Ustawienie środka koła z wartościami parametrów x i y
+    }
     //Metody typu getter
     double getRadius()
     {
         return this.radius; //Zwracanie wartości promienia
+    }
+    double getCX()
+    {
+        return this.centre.getX(); //Zwracanie położenia x
+    }
+    double getCY()
+    {
+        return this.centre.getY(); //Zwracanie wartości położenia y
     }
     double getDiameter()
     {
@@ -100,12 +118,15 @@ public class Main
 		Circle c1 = new Circle(); //Tworzenie obiektu c1 konstruktorem domyślnym
 		System.out.println("Parametry stworzonego obiektu c1:");
 		System.out.println("promień = " + c1.radius);
+		System.out.println("c1(" + c1.getCX() + ", " + c1.getCY() + ")");
 		System.out.println("średnica = " + c1.getDiameter());
 		System.out.println("obwód = " + c1.getCircuit());
 		System.out.println("pole = " + c1.getArea());
 		System.out.println("Parametry zmodyfikowanego obiektu c1:");
 		c1.radius = 2.75; //Ustawienie nowego promienia
+		c1.setCentre(4.7, 8.25); //Ustawienie nowego położenia
 		System.out.println("promień = " + c1.radius);
+		System.out.println("c1(" + c1.getCX() + ", " + c1.getCY() + ")");
 		System.out.println("średnica = " + c1.getDiameter());
 		System.out.println("obwód = " + c1.getCircuit());
 		System.out.println("pole = " + c1.getArea());
@@ -113,9 +134,26 @@ public class Main
 		Circle c2 = new Circle(7.52); //Tworzenie obiektu konstruktorem przeciążonym
 		System.out.println("Parametry stworzonego obiektu c2:");
 		System.out.println("promień = " + c2.radius);
+		System.out.println("c2(" + c2.getCX() + ", " + c2.getCY() + ")");
 		System.out.println("średnica = " + c2.getDiameter());
 		System.out.println("obwód = " + c2.getCircuit());
 		System.out.println("pole = " + c2.getArea());
+		System.out.println();
+		Circle c3 = new Circle(2.48, -7.45, 4.89); //Tworzenie obiektu konstruktorem przeciążonym
+		System.out.println("Parametry stworzonego obiektu c3:");
+		System.out.println("promień = " + c3.radius);
+		System.out.println("c3(" + c3.getCX() + ", " + c3.getCY() + ")");
+		System.out.println("średnica = " + c3.getDiameter());
+		System.out.println("obwód = " + c3.getCircuit());
+		System.out.println("pole = " + c3.getArea());
+		System.out.println();
+		Circle c4 = new Circle(10.85, new Point2D(5, 10)); //Tworzenie obiektu konstruktorem przeciążonym
+		System.out.println("Parametry stworzonego obiektu c4:");
+		System.out.println("promień = " + c4.radius);
+		System.out.println("c4(" + c4.getCX() + ", " + c4.getCY() + ")");
+		System.out.println("średnica = " + c4.getDiameter());
+		System.out.println("obwód = " + c4.getCircuit());
+		System.out.println("pole = " + c4.getArea());
 		System.out.println();
 	}
 }
