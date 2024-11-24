@@ -44,17 +44,26 @@ class Point2D
 class Circle
 {
     double radius; //Promień
+    Point2D centre; //Środek koła
     //Domyślny konstruktor
     Circle()
     {
         this.radius = 1.0; //Ustawienie promienia
+        this.centre = new Point2D(); //Tworzenie obiektu jako środka koła
         System.out.println("Circle()");
     }
     //Konstruktor przeciążony
     Circle(double r)
     {
         this.radius = r; //Ustawienie promienia na wartość parametru r
+        this.centre = new Point2D(); //Tworzenie obiektu jako środka koła
         System.out.println("Circle(double r)");
+    }
+    Circle(double r, double x, double y)
+    {
+        this.radius = r; //Ustawienie promienia na wartość parametru r
+        this.centre = new Point2D(x, y); //Tworzenie obiektu jako środka koła z argumentami x, y
+        System.out.println("Circle(double r, double x, double y)");
     }
     //Metody typu setter
     void setRadius(double r)
