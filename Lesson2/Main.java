@@ -1,39 +1,82 @@
+//Klasa reprezetnująca punkt na płaszczyźnie 2D
+class Point2D
+{
+    double x, y; //Współrzędne punktu
+    //Konstruktor bezargumentowy
+    Point2D()
+    {
+        this.x = 0.0; //Ustawienie pola this.x klasy na wartość 0.0
+        this.y = 0.0; //Ustawienie pola this.y klasy na wartość 0.0
+        System.out.println("Point2D()");
+    }
+    //Konstruktor argumentowy
+    Point2D(double x, double y)
+    {
+        this.x = x; //Ustawienie pola this.x klasy na wartość argumentu x
+        this.y = y; //Ustawienie pola this.y klasy na wartość argumentu y
+        System.out.println("Point2D(double x, double y)");
+    }
+    //Metody dostępowe typu setter
+    void setX(double x)
+    {
+        this.x = x;
+    }
+    void setY(double y)
+    {
+        this.y = y;
+    }
+    void setXY(double x, double y)
+    {
+        this.setX(x);
+        this.setY(y);
+    }
+    //Metody dostępowe typu getter
+    double getX()
+    {
+        return this.x;
+    }
+    double getY()
+    {
+        return this.y;
+    }
+}
+//Klasa reprezetnująca koło
 class Circle
 {
     double radius; //Promień
     //Domyślny konstruktor
     Circle()
     {
-        radius = 1.0; //Ustawienie promienia
+        this.radius = 1.0; //Ustawienie promienia
         System.out.println("Circle()");
     }
     //Konstruktor przeciążony
     Circle(double r)
     {
-        radius = r; //Ustawienie promienia na wartość parametru r
+        this.radius = r; //Ustawienie promienia na wartość parametru r
         System.out.println("Circle(double r)");
     }
     //Metody typu setter
     void setRadius(double r)
     {
-        radius = r; //Ustawienie promienia na wartość argumentu r
+        this.radius = r; //Ustawienie promienia na wartość argumentu r
     }
     //Metody typu getter
     double getRadius()
     {
-        return radius; //Zwracanie wartości promienia
+        return this.radius; //Zwracanie wartości promienia
     }
     double getDiameter()
     {
-        return 2 * radius; //Obliczanie średnicy koła i zwracanie wyniku
+        return 2 * this.radius; //Obliczanie średnicy koła i zwracanie wyniku
     }
     double getCircuit()
     {
-        return 2 * 3.14 * radius; //Obliczanie obwodu koła i zwracanie wyniku
+        return 2 * 3.14 * this.radius; //Obliczanie obwodu koła i zwracanie wyniku
     }
     double getArea()
     {
-        return 3.14 * radius * radius; //Obliczanie pola koła i zwracanie wyniku
+        return 3.14 * this.radius * this.radius; //Obliczanie pola koła i zwracanie wyniku
     }
 }
 
@@ -41,8 +84,11 @@ public class Main
 {
 	public static void main(String[] args)
 	{
-		System.out.println("Klasa Circle");
-		Circle c1 = new Circle(); //Tworzenie obiektu konstruktorem domyślnym
+		System.out.println("Klasa Circle (dla tworzenia kółek) i Point2D (dla tworzenia punktów)");
+		Point2D p1 = new Point2D(); //Tworzenie obiektu p1 konstruktorem domyślnym
+		Point2D p2 = new Point2D(-9.5, 21.05); //Tworzenie obiektu p1 konstruktorem domyślnym
+		System.out.println("p2(" + p2.getX() + ", " + p2.getY() + ")");
+		Circle c1 = new Circle(); //Tworzenie obiektu c1 konstruktorem domyślnym
 		System.out.println("Parametry stworzonego obiektu c1:");
 		System.out.println("promień = " + c1.radius);
 		System.out.println("średnica = " + c1.getDiameter());
